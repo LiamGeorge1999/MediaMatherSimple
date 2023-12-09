@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using System.Reflection;
+﻿using MediaMather.Models;
 using System.Text.Json;
 
 namespace MediaMather
 {
-	public class ApiKeyChecker
+    public class ApiKeyChecker
 	{
 		public static bool checkApiKey(string key, DatabaseContext db)
 		{

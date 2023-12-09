@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Sqlite;
+﻿using MediaMather.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MediaMather
 {
-	public class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext
 	{
 		public DbSet<Audit> Audits { get; set; }
 		public DbSet<Token> Tokens { get; set; }
