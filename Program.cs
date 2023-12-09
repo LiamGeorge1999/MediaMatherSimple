@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http.Json;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -30,10 +29,10 @@ namespace MediaMather
 
 			app.MapPost("/testJson", ([FromBody] Operands operands, [FromServices] DatabaseContext db) => { Console.WriteLine(JsonSerializer.Serialize(operands)); return Results.Ok<Operands>(operands); });
 
-			app.MapGet("/add", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathController.Determine(Mather.Add, operands, apiKey, db));
-			app.MapGet("/sub", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathController.Determine(Mather.Sub, operands, apiKey, db));
-			app.MapGet("/mult", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathController.Determine(Mather.Mult, operands, apiKey, db));
-			app.MapGet("/div", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathController.Determine(Mather.Div, operands, apiKey, db));
+			app.MapGet("/add", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathHandler.Determine(Mather.Add, operands, apiKey, db));
+			app.MapGet("/sub", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathHandler.Determine(Mather.Sub, operands, apiKey, db));
+			app.MapGet("/mult", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathHandler.Determine(Mather.Mult, operands, apiKey, db));
+			app.MapGet("/div", async ([FromBody] Operands operands, [FromHeader] string apiKey, [FromServices] DatabaseContext db) => await MathHandler.Determine(Mather.Div, operands, apiKey, db));
 
 			app.MapGet("/audits", async ([FromHeader] string apiKey, [FromServices] DatabaseContext db) => await db.Audits.ToListAsync());
 

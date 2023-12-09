@@ -1,4 +1,6 @@
-﻿namespace MediaMather
+﻿using MediaMather.Models;
+
+namespace MediaMather
 {
 	public class TokenController
 	{
