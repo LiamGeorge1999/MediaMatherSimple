@@ -1,0 +1,14 @@
+﻿@MediaMather_HostAddress = https://localhost:7058
+
+GET {{MediaMather_HostAddress}}/add
+Content-Type: application/json
+
+{"X": 10.5, "Y": 13.2 }
+
+###
+
+POST {{MediaMather_HostAddress}}/testJson
+Content-Type: application/json
+
+{"X": 10.5, "Y": 13.2 }
+###
